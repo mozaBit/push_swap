@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:52:15 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 12:03:33 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:29:59 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,26 @@ t_stack	*return_last_node(t_stack *node)
 	while (node->next)
 		node = node->next;
 	return (node);
+}
+
+t_stack	*return_first_node(t_stack *stack)
+{
+	int		i;
+	t_stack	*first_node;
+
+	if (!stack)
+		return (NULL);
+	i = INT_MIN;
+	while (stack)
+	{
+		if (i < stack->value)
+		{
+			i = stack->value;
+			first_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (first_node);
 }
 
 /*

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sh_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/17 07:55:28 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:07:17 by bmetehri         ###   ########.fr       */
+/*   Created: 2023/09/19 13:25:07 by bmetehri          #+#    #+#             */
+/*   Updated: 2023/09/19 19:42:46 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int ac, char **av)
+void	short_sort(t_stack **stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*first_node;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	stack_init(&a, av, ac == 2);
-	if (!stack_sorted(a))
+	first_node = return_first_node(*stack);
+	if (*stack == first_node)
+		ra(stack, true);
+	else if ((*stack)->next == first_node)
+		rra(stack, true);
+	if ((*stack)->value > (*stack)->next->value)
+		sa(stack, true);
+}
+
+void	five_algo(t_stack **a, t_stack **b)
+{
+	while (stack_length(*a) > 3)
 	{
-		if (stack_length(a) == 2)
-			sa(&a, true);
-		else if (stack_length(a) == 3)
-			short_sort(&a);
-		else
-			push_swap(&a, &b);
+		init_nodes(*a, *b);
+		finish_rotation(a, return_smallest_node(*a), 'a');
+		pb(b, a, false);
 	}
-	free_stack(&a);
-	return (0);
 }
