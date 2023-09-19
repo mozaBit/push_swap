@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 07:55:28 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:13:35 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:50:22 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		return (1);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	stack_init(&a, av, ac == 2);
+	stack_init(&a, av + 1, ac == 2);
 	if (!stack_sorted(a))
 	{
 		if (stack_length(a) == 2)
