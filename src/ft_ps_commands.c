@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:46:45 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:06:59 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:40:20 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 	set_current_position(*b);
 }
 
-static void reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+static void	reverse_rotate_both(t_stack **a,
+									t_stack **b,
+									t_stack *cheapest_node)
 {
 	while (*a != cheapest_node->target_node && *b != cheapest_node)
 		rrr(a, b, true);
@@ -49,7 +51,7 @@ static void reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node
 	set_current_position(*b);
 }
 
-static void move_nodes(t_stack **a, t_stack **b)
+static void	move_nodes(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest_node;
 
@@ -92,5 +94,4 @@ void	push_swap(t_stack **a, t_stack **b)
 	else
 		while (*a != small_node)
 			rra(a, true);
-
 }

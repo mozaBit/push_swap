@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:52:15 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 13:29:59 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:30:34 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	append_to_stack(t_stack **stack, int nb)
 	}
 	else
 	{
-		last_node = return_lst_node(*stack);
+		last_node = return_last_node(*stack);
 		last_node->next = new_node;
 		new_node->prev = last_node;
 	}

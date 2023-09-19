@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:38:27 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 19:55:03 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:42:10 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
  * Permet d'avoir la longueur de la stack
 */
-int		stack_length(t_stack *stack)
+int	stack_length(t_stack *stack)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ bool	stack_sorted(t_stack *stack)
 t_stack	*return_smallest_node(t_stack *stack)
 {
 	long		i;
-	t_stack	*smallest_node;
+	t_stack		*smallest_node;
 
 	if (!stack)
 		return (NULL);

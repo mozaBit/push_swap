@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:17:46 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 15:34:41 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:31:18 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	set_target_node(t_stack *a, t_stack *b)
 			b->target_node = return_smallest_node(a);
 		else
 			b->target_node = target;
-			b = b->next;
+		b = b->next;
 	}
 }
 

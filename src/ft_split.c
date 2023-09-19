@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 22:23:01 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 00:50:21 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:32:13 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	is_sep(char si, char c)
 	return (0);
 }
 
-void	free_stuff(char **tab)
+void	free_stuff_h(char **tab)
 {
 	size_t	i;
 
@@ -96,6 +96,6 @@ char	**ft_split(const char *s, char c)
 	tab[count] = NULL;
 	i = remplir_table(tab, str, c);
 	if (i)
-		free_stuff(tab);
+		free_stuff_h(tab);
 	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 08:49:40 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 11:48:57 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:36:53 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	its_repitition(t_stack *stack, int nb)
 		return (0);
 	while (stack)
 	{
-		if (stack->value== nb)
+		if (stack->value == nb)
 			return (1);
 		stack = stack->next;
 	}

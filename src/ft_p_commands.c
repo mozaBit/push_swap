@@ -6,15 +6,15 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:44:32 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 19:48:33 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:39:16 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void push(t_stack **src, t_stack **dst)
+static void	push(t_stack **src, t_stack **dst)
 {
-	t_stack *new_node;
+	t_stack	*new_node;
 
 	if (!*src)
 		return ;

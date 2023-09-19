@@ -6,13 +6,13 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:37:09 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 13:40:53 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:41:01 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void rero(t_stack **stack)
+static void	rero(t_stack **stack)
 {
 	t_stack	*last_node;
 	int		length;

@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 02:44:22 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 11:53:57 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:37:55 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ static long	ft_atol(const char *str)
 	return (num * isneg);
 }
 
-
 void	stack_init(t_stack **stack, char **av, bool is_single)
 {
 	int		i;
-	long 	nb;
+	long	nb;
 
 	i = 0;
 	while (av[i])
@@ -52,7 +51,7 @@ void	stack_init(t_stack **stack, char **av, bool is_single)
 		if (error_in_str(av[i]))
 			free_stuff(stack, av, is_single);
 		nb = ft_atol(av[i]);
-		if (nb > INT_MAX || nb < INT_MIN )
+		if (nb > INT_MAX || nb < INT_MIN)
 			free_stuff(stack, av, is_single);
 		if (its_repitition(*stack, (int)nb))
 			free_stuff(stack, av, is_single);
