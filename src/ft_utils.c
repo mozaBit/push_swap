@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:38:27 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:42:10 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:04:18 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,13 @@ int	stack_length(t_stack *stack)
 */
 bool	stack_sorted(t_stack *stack)
 {
-	int		i;
-	t_stack	*current;
-
 	if (!stack)
 		return (true);
-	i = stack->value;
-	current = stack->next;
-	while (current)
+	while (stack->next)
 	{
-		if (i > current->value)
+		if (stack->value > stack->next->value)
 			return (false);
-		i = current->value;
-		current = current->next;
+		stack = stack->next;
 	}
 	return (true);
 }

@@ -6,96 +6,84 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 22:23:01 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:32:13 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:55:17 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <stddef.h>
 
-size_t	is_sep(char si, char c)
+static int	count_words(char *str, char separator)
 {
-	if (si == c || si == '\0')
-		return (1);
-	return (0);
-}
+	int		count;
+	bool	inside_word;
 
-void	free_stuff_h(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
+	count = 0;
+	while (*str)
 	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-void	remplir_str(char *dest, char *src, char sep)
-{
-	size_t	i;
-
-	i = 0;
-	while (is_sep(src[i], sep) == 0)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-}
-
-size_t	remplir_table(char **tab, char *str, char c)
-{
-	size_t	i;
-	size_t	j;
-	size_t	word;
-
-	i = 0;
-	word = 0;
-	while (str[i])
-	{
-		if (is_sep(str[i], c) == 1)
-			i++;
-		else
+		inside_word = false;
+		while (*str == separator)
+			++str;
+		while (*str != separator && *str)
 		{
-			j = 0;
-			while (is_sep(str[i + j], c) == 0)
-				j++;
-			tab[word] = malloc(sizeof(char) * (j + 1));
-			remplir_str(tab[word], &str[i], c);
-			if (!tab[word])
-				return (1);
-			i += j;
-			word++;
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
+			++str;
 		}
 	}
-	return (0);
+	return (count);
 }
 
-char	**ft_split(const char *s, char c)
+char	*get_next_word(char *str, char separator)
 {
-	char	**tab;
-	char	*str;
-	size_t	count;
-	size_t	i;
+	static int	cursor = 0;
+	char		*next_str;
+	int			len;
+	int			i;
+
+	len = 0;
+	i = 0;
+	while (str[cursor] == separator)
+		++cursor;
+	while ((str[cursor + len] != separator) && str[cursor + len])
+		++len;
+	next_str = malloc((size_t)len * sizeof(char) + 1);
+	if (NULL == next_str)
+		return (NULL);
+	while ((str[cursor] != separator) && str[cursor])
+		next_str[i++] = str[cursor++];
+	next_str[i] = '\0';
+	return (next_str);
+}
+
+char	**ft_split(char *str, char separator)
+{
+	int		words_number;
+	char	**vector_strings;
+	int		i;
 
 	i = 0;
-	count = 0;
-	str = (char *)s;
-	while (str[i])
-	{
-		if (is_sep(str[i], c) == 0
-			&& is_sep(str[i + 1], c) == 1)
-			count++;
-		i++;
-	}
-	tab = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!tab)
+	words_number = count_words(str, separator);
+	if (!words_number)
+		exit(1);
+	vector_strings = malloc(sizeof(char *) * (size_t)(words_number + 2));
+	if (NULL == vector_strings)
 		return (NULL);
-	tab[count] = NULL;
-	i = remplir_table(tab, str, c);
-	if (i)
-		free_stuff_h(tab);
-	return (tab);
+	while (words_number-- >= 0)
+	{
+		if (0 == i)
+		{
+			vector_strings[i] = malloc(sizeof(char));
+			if (NULL == vector_strings[i])
+				return (NULL);
+			vector_strings[i++][0] = '\0';
+			continue ;
+		}
+		vector_strings[i++] = get_next_word(str, separator);
+	}
+	vector_strings[i] = NULL;
+	return (vector_strings);
 }

@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 08:49:40 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:36:53 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:57:01 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	free_stuff(t_stack **stack, char **av, bool is_single)
 
 int	its_repitition(t_stack *stack, int nb)
 {
-	if (NULL == stack)
+	if (!stack)
 		return (0);
 	while (stack)
 	{

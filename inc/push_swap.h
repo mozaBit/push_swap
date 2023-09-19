@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 07:55:22 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:36:17 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/19 23:54:04 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*return_first_node(t_stack *stack);
 /*
  * Utils
 */
-char	**ft_split(const char *s, char c);
+char	**ft_split(char *str, char separator);
 int		stack_length(t_stack *stack);
 bool	stack_sorted(t_stack *stack);
 t_stack	*return_smallest_node(t_stack *stack);

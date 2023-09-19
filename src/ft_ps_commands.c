@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:46:45 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:40:20 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:57:36 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ static void	move_nodes(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest_node;
 
-	cheapest_node = return_cheapest_node(*a);
+	cheapest_node = return_cheapest_node(*b);
 	if (cheapest_node->above_median
 		&& cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node);
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
 		reverse_rotate_both(a, b, cheapest_node);
-	finish_rotation(a, cheapest_node, 'a');
-	finish_rotation(b, cheapest_node->target_node, 'b');
+	finish_rotation(b, cheapest_node, 'b');
+	finish_rotation(a, cheapest_node->target_node, 'a');
 	pa(a, b, true);
 }
 
@@ -77,8 +77,8 @@ void	push_swap(t_stack **a, t_stack **b)
 		five_algo(a, b);
 	else
 	{
-		while (length > 3)
-			pb(b, a, false);
+		while (length-- > 3)
+			pb(b, a, true);
 	}
 	short_sort(a);
 	while (*b)

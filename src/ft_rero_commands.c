@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:37:09 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:41:01 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 01:25:25 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static void	rero(t_stack **stack)
 	int		length;
 
 	length = stack_length(*stack);
-	if (!stack || !*stack || length < 2)
+	if (!stack || !*stack || length == 1)
 		return ;
 	last_node = return_last_node(*stack);
-	last_node->next = *stack;
 	last_node->prev->next = NULL;
+	last_node->next = *stack;
 	last_node->prev = NULL;
 	*stack = last_node;
 	last_node->next->prev = last_node;

@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:16:22 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 19:50:28 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 01:41:46 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 static void	swap(t_stack **stack)
 {
-	t_stack	*tmp;
+	int		len;
 
-	if (!stack || !*stack || !(*stack)->next)
+	len = stack_length(*stack);
+	if (!stack || !*stack || len == 1)
 		return ;
-	tmp = *stack;
+	len = stack_length(*stack);
 	*stack = (*stack)->next;
-	tmp->next = (*stack)->next;
-	(*stack)->next = tmp;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
 	(*stack)->prev = NULL;
-	tmp->prev = *stack;
 }
 
 void	sa(t_stack **a, bool print)

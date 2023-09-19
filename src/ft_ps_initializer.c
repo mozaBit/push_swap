@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:17:46 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:31:18 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:27:31 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	set_current_position(t_stack *stack)
 		else
 			stack->above_median = false;
 		stack = stack->next;
-		++i;
+		i++;
 	}
 }
 
@@ -82,16 +82,20 @@ void	set_cost(t_stack *a, t_stack *b)
 
 static void	set_cheap_node(t_stack *b)
 {
-	t_stack	*current;
+	long	i;
 	t_stack	*cheap_node;
 
-	cheap_node = b;
-	current = b->next;
-	while (current)
+	if (NULL == b)
+		return ;
+	i = LONG_MAX;
+	while (b)
 	{
-		if (current->push_cost < cheap_node->push_cost)
-			cheap_node = current;
-		current = current->next;
+		if (b->push_cost < i)
+		{
+			i = b->push_cost;
+			cheap_node = b;
+		}
+		b = b->next;
 	}
 	cheap_node->cheapest = true;
 }

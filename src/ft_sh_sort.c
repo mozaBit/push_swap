@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 13:25:07 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 19:42:46 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 00:46:07 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	five_algo(t_stack **a, t_stack **b)
 	{
 		init_nodes(*a, *b);
 		finish_rotation(a, return_smallest_node(*a), 'a');
-		pb(b, a, false);
+		pb(b, a, true);
 	}
 }
