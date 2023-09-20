@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:17:46 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/20 00:27:31 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:05:10 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	set_cheap_node(t_stack *b)
 	long	i;
 	t_stack	*cheap_node;
 
-	if (NULL == b)
+	if (!b)
 		return ;
 	i = LONG_MAX;
 	while (b)

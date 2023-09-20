@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:52:15 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 20:30:34 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:53:12 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 */
 t_stack	*return_last_node(t_stack *node)
 {
-	if (NULL == node)
+	if (!node)
 		return (NULL);
 	while (node->next)
 		node = node->next;
 	return (node);
 }
 
+/*
+ * Permet de retourner le plus grand chiffre dans la stack
+*/
 t_stack	*return_first_node(t_stack *stack)
 {
 	int		i;

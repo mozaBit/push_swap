@@ -6,12 +6,11 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 22:23:01 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 23:55:17 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:50:17 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stddef.h>
 
 static int	count_words(char *str, char separator)
 {

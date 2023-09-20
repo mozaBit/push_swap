@@ -6,7 +6,7 @@
 /*   By: bmetehri <bmetehri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 07:55:22 by bmetehri          #+#    #+#             */
-/*   Updated: 2023/09/19 23:54:04 by bmetehri         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:50:30 by bmetehri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stddef.h>
 
 typedef struct s_stack
 {
